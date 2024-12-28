@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  db:
+    container_name: db #コンテナ名を指定
+    image: mysql:8
+    command:
+      --collation-server=utf8mb4_0900_bin
+      --transaction-isolation=READ-COMMITTED
+    restart: always #host起動時に自動起動
+    environment:
+      MYSQL_ROOT_PASSWORD: password #初期パスワード
+      TZ: Asia/Tokyo #タイムゾーンを東京に
+    ports:
+      - 53306:3306
